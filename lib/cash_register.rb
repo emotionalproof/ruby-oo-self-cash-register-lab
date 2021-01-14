@@ -27,18 +27,18 @@ class CashRegister
         if discount
             new_total = total - ((total * (discount/100.0).to_f)).to_i
             # binding.pry
-            @total = new_total.to_i
-            "After the discount, the total comes to $#{total}."
+            self.total = new_total.to_i
+            "After the discount, the total comes to $#{self.total}."
         else
             "There is no discount to apply."
         end
     end
 
     def void_last_transaction
-        @total -= last_transaction
+        self.total -= last_transaction
         @items.pop
         if items.empty? 
-            @total = previous_total
+            self.total = previous_total
         end
     end
 end
